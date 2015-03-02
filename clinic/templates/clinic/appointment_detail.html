@@ -1,0 +1,12 @@
+{% extends 'clinic/base.html' %}
+
+{% block content %}
+    {% if appointment.appointment_date %}
+        <div class="date">
+            {{ appointment.appointment_date }}
+        </div>
+    {% endif %}
+    <a class="btn btn-default" href="{% url 'appointment_edit' pk=appointment.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+    <h1>{{ appointment.patient_name }}</h1>
+    <p>{{ appointment.reason|linebreaks }}</p>
+{% endblock %}

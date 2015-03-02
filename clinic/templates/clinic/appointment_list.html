@@ -1,0 +1,13 @@
+{% extends 'clinic/base.html' %}
+
+{% block content %}
+    {% for appointment in appointments %}
+        <div class="post">
+            <div class="date">
+                {{ appointment.appointment_date }}
+            </div>
+            <h1><a href="{% url 'clinic.views.appointment_detail' pk=appointment.pk %}">{{ appointment.patient_name }}</a></h1>
+            <p>{{ appointment.reason|linebreaks }}</p>
+        </div>
+    {% endfor %}
+{% endblock content %}
